@@ -2,27 +2,27 @@ package Views;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class GUIController {
     private static GUIController ourInstance = new GUIController();
+    private JFrame frame;
+
+    private GUIController() {
+        init();
+    }
 
     public static GUIController getInstance() {
         return ourInstance;
     }
 
-    public void setContent(JPanel panel, String title){
+    public void setContent(JPanel panel, String title) {
         frame.setContentPane(panel);
         frame.setTitle(title);
         frame.pack();
         frame.setVisible(true);
     }
-    private GUIController() {
-        init();
-    }
-    private JFrame frame;
 
-    private void init(){
+    private void init() {
 
 
         MainMenuController mmc = new MainMenuController();

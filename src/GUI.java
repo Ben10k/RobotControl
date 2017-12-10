@@ -2,7 +2,7 @@ import Listeners.GestureListener;
 import Listeners.MotionListener;
 import Listeners.MouseListener;
 import Views.GUIController;
-import com.leapmotion.leap.*;
+import com.leapmotion.leap.Controller;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -29,15 +29,11 @@ public class GUI extends JFrame {
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
 
-
         this.label1 = new JLabel("Waiting for Gestures");
         panel.add(label1);
 
         gestureListener = new GestureListener(this.label1);
         c.addListener(gestureListener);
-
-
-
 
 
         this.label2 = new JLabel("Waiting for Motions");
@@ -46,12 +42,11 @@ public class GUI extends JFrame {
         c.addListener(motionListener);
 
         mouseListener = new MouseListener();
-        c.addListener(mouseListener);
+        //c.addListener(mouseListener);
 
         this.add(panel);
         setVisible(true);
     }
-
 
 
     public static void main(String[] args) {

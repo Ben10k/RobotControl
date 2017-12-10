@@ -2,7 +2,7 @@ package Views;
 
 import javax.swing.*;
 
-public class RobotsHistoryController implements IController{
+public class RobotsHistoryController implements IController {
     private JPanel backPanel;
     private JPanel moreInfoPanel;
     private JPanel mainPanel;

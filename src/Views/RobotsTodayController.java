@@ -2,7 +2,7 @@ package Views;
 
 import javax.swing.*;
 
-public class RobotsTodayController implements IController{
+public class RobotsTodayController implements IController {
     private JPanel backPanel;
     private JPanel moreInfoPanel;
     private JPanel mainPanel;
@@ -11,8 +11,8 @@ public class RobotsTodayController implements IController{
     private JPanel contentPanel;
 
 
-    public RobotsTodayController(){
-        
+    public RobotsTodayController() {
+
     }
 
     @Override

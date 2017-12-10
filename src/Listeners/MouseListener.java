@@ -10,43 +10,34 @@ public class MouseListener extends Listener {
 
     public Robot robot;
 
-    public void onConnect(Controller c)
-    {
+    public void onConnect(Controller c) {
         c.enableGesture(Gesture.Type.TYPE_CIRCLE);
         c.enableGesture(Gesture.Type.TYPE_SCREEN_TAP);
         c.enableGesture(Gesture.Type.TYPE_SWIPE);
         c.enableGesture(Gesture.Type.TYPE_KEY_TAP);
     }
 
-    public void onFrame(Controller c)
-    {
+    public void onFrame(Controller c) {
         //c.setPolicy(Controller.PolicyFlag.POLICY_BACKGROUND_FRAMES);
 
-        try {robot = new Robot();} catch(Exception e) {}
+        try {
+            robot = new Robot();
+        } catch (Exception e) {
+        }
         Frame frame = c.frame();
         InteractionBox box = frame.interactionBox();
 
-        for (Finger f : frame.fingers())
-        {
-            for (Finger t: frame.fingers())
-            {
-                for (Finger p: frame.fingers())
-                {
-                    for (Finger m: frame.fingers())
-                    {
-                        for (Finger r: frame.fingers())
-                        {
-                            if (f.type() == Finger.Type.TYPE_INDEX)
-                            {
+        for (Finger f : frame.fingers()) {
+            for (Finger t : frame.fingers()) {
+                for (Finger p : frame.fingers()) {
+                    for (Finger m : frame.fingers()) {
+                        for (Finger r : frame.fingers()) {
+                            if (f.type() == Finger.Type.TYPE_INDEX) {
 
-                                if (t.type() == Finger.Type.TYPE_THUMB)
-                                {
-                                    if (p.type() == Finger.Type.TYPE_PINKY)
-                                    {
-                                        if (m.type() == Finger.Type.TYPE_MIDDLE)
-                                        {
-                                            if (r.type() == Finger.Type.TYPE_RING)
-                                            {
+                                if (t.type() == Finger.Type.TYPE_THUMB) {
+                                    if (p.type() == Finger.Type.TYPE_PINKY) {
+                                        if (m.type() == Finger.Type.TYPE_MIDDLE) {
+                                            if (r.type() == Finger.Type.TYPE_RING) {
 
 
                                                 Vector indexPos = f.stabilizedTipPosition();
@@ -113,58 +104,68 @@ public class MouseListener extends Listener {
                                                  */
                                                 if (f.isExtended() && m.isExtended() && r.isExtended() && p.isExtended()) // 4 fingers
                                                 {
-                                                    for (Hand h : frame.hands())
-                                                    {
+                                                    for (Hand h : frame.hands()) {
                                                         Vector handPos = h.palmPosition();
                                                         Vector boxHandPos = box.normalizePoint(handPos);
                                                         Dimension screen = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-                                                        robot.mouseMove((int)(screen.width * boxHandPos.getX()), (int)(screen.height - boxHandPos.getY() * screen.height));
+                                                        robot.mouseMove((int) (screen.width * boxHandPos.getX()), (int) (screen.height - boxHandPos.getY() * screen.height));
                                                     }
                                                 }
 
-                                                for (Gesture g : frame.gestures())
-                                                {
-                                                    if (g.type() == Gesture.Type.TYPE_CIRCLE)
-                                                    {
+                                                for (Gesture g : frame.gestures()) {
+                                                    if (g.type() == Gesture.Type.TYPE_CIRCLE) {
                                                         CircleGesture circle = new CircleGesture(g);
-                                                        if (f.isExtended() && !m.isExtended() && !r.isExtended() && !p.isExtended()){
-                                                            if (circle.pointable().direction().angleTo(circle.normal()) <= Math.PI/4)
-                                                            {
+                                                        if (f.isExtended() && !m.isExtended() && !r.isExtended() && !p.isExtended()) {
+                                                            if (circle.pointable().direction().angleTo(circle.normal()) <= Math.PI / 4) {
                                                                 robot.mouseWheel(1);
-                                                                try{Thread.sleep(50);} catch(Exception e){}
-                                                            }
-                                                            else
-                                                            {
+                                                                try {
+                                                                    Thread.sleep(50);
+                                                                } catch (Exception e) {
+                                                                }
+                                                            } else {
                                                                 robot.mouseWheel(-1);
-                                                                try{Thread.sleep(50);} catch(Exception e) {}
+                                                                try {
+                                                                    Thread.sleep(50);
+                                                                } catch (Exception e) {
+                                                                }
                                                             }
                                                         }
                                                     }
-                                                    if (g.type() == Gesture.Type.TYPE_KEY_TAP)
-                                                    {
-                                                        if (f.isExtended() && !m.isExtended()){ //
+                                                    if (g.type() == Gesture.Type.TYPE_KEY_TAP) {
+                                                        if (f.isExtended() && !m.isExtended()) { //
                                                             robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                                                            try{Thread.sleep(50);} catch(Exception e) {}
+                                                            try {
+                                                                Thread.sleep(50);
+                                                            } catch (Exception e) {
+                                                            }
                                                             robot.mouseRelease(InputEvent.BUTTON1_MASK);
 
                                                         }
-                                                        if (f.isExtended() && m.isExtended()){ // first two fingers
+                                                        if (f.isExtended() && m.isExtended()) { // first two fingers
                                                             robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
-                                                            try{Thread.sleep(50);} catch(Exception e) {}
+                                                            try {
+                                                                Thread.sleep(50);
+                                                            } catch (Exception e) {
+                                                            }
                                                             robot.mouseRelease(InputEvent.BUTTON3_MASK);
                                                         }
                                                     }
-                                                    if (g.type() == Gesture.Type.TYPE_SCREEN_TAP)
-                                                    {
-                                                        if (f.isExtended() && !m.isExtended()){ //
+                                                    if (g.type() == Gesture.Type.TYPE_SCREEN_TAP) {
+                                                        if (f.isExtended() && !m.isExtended()) { //
                                                             robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                                                            try{Thread.sleep(50);} catch(Exception e) {}
+                                                            try {
+                                                                Thread.sleep(50);
+                                                            } catch (Exception e) {
+                                                            }
                                                             robot.mouseRelease(InputEvent.BUTTON1_MASK);
 
                                                         }
-                                                        if (f.isExtended() && m.isExtended()){ // first two fingers
+                                                        if (f.isExtended() && m.isExtended()) { // first two fingers
                                                             robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
-                                                            try{Thread.sleep(50);} catch(Exception e) {}
+                                                            try {
+                                                                Thread.sleep(50);
+                                                            } catch (Exception e) {
+                                                            }
                                                             robot.mouseRelease(InputEvent.BUTTON3_MASK);
                                                         }
                                                     }

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MainMenuController implements IController{
+public class MainMenuController implements IController {
     private JPanel robotsTodayPanel;
     private JPanel historyOfRoboticsPanel;
     private JPanel controlRobotPanel;

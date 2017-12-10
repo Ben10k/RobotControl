@@ -2,16 +2,16 @@ package Views;
 
 import javax.swing.*;
 
-public class ControlRobotController implements IController{
+public class ControlRobotController implements IController {
     private JPanel contentPanel;
 
     @Override
     public JPanel getContentPanel() {
-        return null;
+        return contentPanel;
     }
 
     @Override
     public String getTitle() {
-        return null;
+        return "Kontroliuoti robotą";
     }
 }

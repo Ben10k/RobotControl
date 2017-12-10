@@ -2,7 +2,7 @@ package Views;
 
 import javax.swing.*;
 
-public class SleepController implements IController{
+public class SleepController implements IController {
     private JPanel contentPanel;
 
     @Override

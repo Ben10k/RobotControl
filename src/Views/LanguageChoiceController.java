@@ -2,7 +2,7 @@ package Views;
 
 import javax.swing.*;
 
-public class LanguageChoiceController implements IController{
+public class LanguageChoiceController implements IController {
     private JPanel lithuanianPanel;
     private JPanel englishPanel;
     private JPanel russianPanel;
