@@ -1,0 +1,5 @@
+One of the first recorded designs of a humanoid robot was made by Leonardo da Vinci (1452–1519) in around 1495. Leonardo's notebooks, rediscovered in the 1950s,
+contain detailed drawings of a mechanical knight in armour which was able to sit up, wave its arms and move its head and jaw. The design is likely to be
+based on his anatomical research recorded in the Vitruvian Man but it is not known whether he attempted to build the robot (see: Leonardo's robot).
+In 1533, Johannes Müller von Königsberg created an automaton eagle and fly made of iron; both could fly. John Dee is also known for creating
+a wooden beetle, capable of flying.

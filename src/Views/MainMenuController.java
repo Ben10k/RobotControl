@@ -25,6 +25,54 @@ public class MainMenuController implements IController {
 
             }
         });
+
+        historyOfRoboticsPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.out.println("historyOfRoboticsPanel");
+                a = new RobotsHistoryController();
+                GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
+
+            }
+        });
+
+        controlRobotPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.out.println("controlRobotPanel");
+                a = new ControlRobotController();
+                GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
+
+
+            }
+        });
+
+        languagePanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.out.println("languagePanel");
+                a = new LanguageChoiceController();
+                GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public JPanel getContentPanel() {

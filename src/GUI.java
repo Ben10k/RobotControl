@@ -38,7 +38,7 @@ public class GUI extends JFrame {
 
         this.label2 = new JLabel("Waiting for Motions");
         panel.add(label2);
-        motionListener = new MotionListener(this.label2);
+        motionListener = new MotionListener(label2);
         c.addListener(motionListener);
 
         mouseListener = new MouseListener();
@@ -51,7 +51,7 @@ public class GUI extends JFrame {
 
     public static void main(String[] args) {
         // Setting listeners up and debug information
-        GUI gui = new GUI();
+        //GUI gui = new GUI();
 
         // Main application
         GUIController control = GUIController.getInstance();

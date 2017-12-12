@@ -1,0 +1,4 @@
+Medical robot
+
+A medical robot is a robot used in the medical sciences. They include, but are not limited to, surgical robots.
+These are in most telemanipulators, which use the surgeon's actions on one side to control the "effector" on the other side.

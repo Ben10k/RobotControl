@@ -6,16 +6,21 @@ import com.leapmotion.leap.*;
 import javax.swing.*;
 
 public class MotionListener extends Listener {
-    JLabel label;
     Frame firstFrame;
     RobotInstructionInterface hexapod;
     int timer = 0;
     int calibration = 0;
-    boolean actuate = true;
-
+    JLabel label;
 
     public MotionListener(JLabel label) {
         this.label = label;
+    }
+
+
+
+    public void disconnect(){
+        hexapod.disconnectSerial();
+        System.out.println("Port disconnected");
     }
 
     @Override
@@ -52,8 +57,10 @@ public class MotionListener extends Listener {
 //        Frame currentFrame = controller.frame();
 
 
-        if (controller.frame().hands().isEmpty())
+        if (controller.frame().hands().isEmpty()) {
             firstFrame = null;
+            label.setText("Insert hand");
+        }
 
 
         if (controller.frame(1).hands().isEmpty()
@@ -61,14 +68,17 @@ public class MotionListener extends Listener {
 //            firstFrame = controller.frame();
             System.out.println("Hand Captured");
             calibration = 1;
+            label.setText("Loading");
+
         }
 
         if (calibration == 50) {
             firstFrame = controller.frame();
             System.out.println("Hand Calibrated");
             hexapod.actuate(0, 5);
-
             calibration = 0;
+
+
         }
         if (calibration != 0) {
             calibration++;
@@ -105,13 +115,30 @@ public class MotionListener extends Listener {
                 if (Math.abs(rotation) > 4) {
                     hexapod.actuate(3, rotation);
                     System.out.println("Rotate              " + rotation);
+                    if (rotation>0)
+                        label.setText("rotating Right");
+                    if (rotation<0)
+                        label.setText("rotating Left");
                 } else {
                     if (Math.abs(speed) > Math.abs(sideways)) {
                         hexapod.actuate(1, speed);
                         System.out.println("moveForwardBackward " + speed);
+                        if (speed>0)
+                            label.setText("moving Forward");
+                        if (speed<0)
+                        label.setText("moving Backward");
+                        if (speed==0)
+                            label.setText("waiting for actions");
+
                     } else {
                         hexapod.actuate(2, sideways);
                         System.out.println("moveLeftRight       " + sideways);
+                        if (sideways>0)
+                            label.setText("moving Right");
+                        if (sideways<0)
+                            label.setText("moving Left");
+                        if (sideways==0)
+                            label.setText("waiting for actions");
 
                     }
                 }

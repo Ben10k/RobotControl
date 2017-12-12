@@ -1,0 +1,6 @@
+Remotely operated vehicles were demonstrated in the late 19th century in the form of several types of remotely controlled torpedoes.
+The early 1870s saw remotely controlled torpedoes by John Ericsson (pneumatic), John Louis Lay (electric wire guided),
+and Victor von Scheliha (electric wire guided).
+The Brennan torpedo, invented by Louis Brennan in 1877 was powered by two contra-rotating propellers that were spun by rapidly pulling
+out wires from drums wound inside the torpedo. Differential speed on the wires connected to the shore station allowed the torpedo to be
+guided to its target, making it "the world's first practical guided missile".

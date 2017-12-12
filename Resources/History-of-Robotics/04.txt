@@ -1,0 +1,5 @@
+Many robots were constructed before the dawn of computer-controlled servomechanisms, for the public relations purposes of major firms.
+These were essentially machines that could perform a few stunts, like the automata of the 18th century. In 1928, one of the first humanoid robots was
+exhibited at the annual exhibition of the Model Engineers Society in London. Invented by W. H. Richards, the robot - named Eric - consisted of
+an aluminium suit of armour with eleven electromagnets and one motor powered by a 12-volt power source. The robot could move its hands and head and
+could be controlled by remote control or voice control.
