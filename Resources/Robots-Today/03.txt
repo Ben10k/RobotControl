@@ -1,5 +1,6 @@
 Domestic Robot
 
-A domestic robot is a type of service robot, an autonomous robot that is primarily used for household chores, but may also be used for education, entertainment or therapy.
+A domestic robot is a type of service robot, an autonomous robot that is primarily used for household chores,
+but may also be used for education, entertainment or therapy.
 Thus far, there are only a few limited models, though speculators, such as Bill Gates, have suggested that they could become more common in the future.
 While most domestic robots are simplistic, some are connected to WiFi home networks or smart environments and are autonomous to a high degree.

@@ -20,7 +20,8 @@ public class MainMenuController implements IController {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 System.out.println("robotsTodayPanel");
-                a = new RobotsTodayController();
+                a = new RobotsInformationController("Resources/Robots-Today/");
+
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
 
             }
@@ -31,7 +32,7 @@ public class MainMenuController implements IController {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 System.out.println("historyOfRoboticsPanel");
-                a = new RobotsHistoryController();
+                a = new RobotsInformationController("Resources/History-of-Robotics/");
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
 
             }
@@ -43,6 +44,7 @@ public class MainMenuController implements IController {
                 super.mouseClicked(e);
                 System.out.println("controlRobotPanel");
                 a = new ControlRobotController();
+
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
 
 

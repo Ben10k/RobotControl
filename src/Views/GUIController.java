@@ -1,11 +1,17 @@
 package Views;
 
+import Listeners.MouseListener;
+import com.leapmotion.leap.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class GUIController {
     private static GUIController ourInstance = new GUIController();
     private JFrame frame;
+    private Controller leapMotion = new Controller();
+    private MouseListener mouseListener;
+
 
     private GUIController() {
         init();
@@ -30,7 +36,7 @@ public class GUIController {
         frame = new JFrame();
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(1024, 768));
+        frame.setPreferredSize(new Dimension(1600, 900));
         frame.setResizable(false);
 
 
@@ -41,6 +47,17 @@ public class GUIController {
         frame.pack();
         frame.setVisible(true);
 
+        mouseListener = new MouseListener();
+        leapMotion.addListener(mouseListener);
 
+
+    }
+
+    public Controller getLeapMotion() {
+        return leapMotion;
+    }
+
+    public MouseListener getMouseListener() {
+        return mouseListener;
     }
 }

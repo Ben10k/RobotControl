@@ -2,6 +2,10 @@ package Views;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.text.Document;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -10,26 +14,28 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class RobotsHistoryController implements IController {
+public class RobotsInformationController implements IController {
     private JPanel backPanel;
     private JPanel goToLeftPanel;
     private JPanel goToRightPanel;
     private JPanel contentPanel;
     private JPanel mainPanel;
-    private JTextArea textArea1;
+    private JTextPane textArea1;
     private JLabel imageLabel;
     private IController a;
     private int id = 0;
-    private final String textFile[] = {"Resources/History-of-Robotics/01.txt",
-            "Resources/History-of-Robotics/02.txt",
-            "Resources/History-of-Robotics/03.txt",
-            "Resources/History-of-Robotics/04.txt"};
-    private final String imageFile[] = {"Resources/History-of-Robotics/01.JPG",
-            "Resources/History-of-Robotics/02.JPG",
-            "Resources/History-of-Robotics/03.JPG",
-            "Resources/History-of-Robotics/04.JPG"};
+    private String location;
+    private final String textFile[] = {"01.txt",
+            "02.txt",
+            "03.txt",
+            "04.txt"};
+    private final String imageFile[] = {"01.JPG",
+            "02.JPG",
+            "03.JPG",
+            "04.JPG"};
 
-    public RobotsHistoryController() {
+    public RobotsInformationController(String location) {
+        this.location = location;
         backPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -61,24 +67,28 @@ public class RobotsHistoryController implements IController {
 
             }
         });
-
-
         loadResources(id);
-
 
     }
 
     private void loadResources(int id) {
         try {
-            imageLabel.setIcon(new ImageIcon(imageFile[id]));
-            BufferedReader br = new BufferedReader(new FileReader(textFile[id]));
+            imageLabel.setIcon(new ImageIcon(location+imageFile[id]));
+            BufferedReader br = new BufferedReader(new FileReader(location+textFile[id]));
             String line = br.readLine();
             textArea1.setText("");
+            String text = "";
             while(line != null)
             {
-                textArea1.append(line+"\n");
+                text += line+"\n";
                 line = br.readLine();
             }
+            textArea1.setText(text);
+            StyledDocument doc = textArea1.getStyledDocument();
+            SimpleAttributeSet center = new SimpleAttributeSet();
+            StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+            doc.setParagraphAttributes(0, doc.getLength(), center, false);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -92,6 +102,9 @@ public class RobotsHistoryController implements IController {
 
     @Override
     public String getTitle() {
-        return "History Of Robotics";
+        if (location.equals("Resources/History-of-Robotics/"))
+            return "History Of Robotics";
+        else
+            return "Robots today";
     }
 }

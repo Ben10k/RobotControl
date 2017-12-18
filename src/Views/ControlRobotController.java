@@ -14,6 +14,15 @@ public class ControlRobotController implements IController {
     private IController a;
     private MotionListener motionListener;
 
+    public void goBack(){
+        System.out.println("back");
+        a = new MainMenuController();
+        GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
+        Controller c = GUIController.getInstance().getLeapMotion();
+        c.removeListener(motionListener);
+        c.addListener(GUIController.getInstance().getMouseListener());
+    }
+
 
     ControlRobotController(){
 
@@ -21,11 +30,7 @@ public class ControlRobotController implements IController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                System.out.println("back");
-                a = new MainMenuController();
-                GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
-                motionListener.disconnect();
-
+                goBack();
             }
         });
         Thread t1 = new Thread(() -> {
@@ -35,9 +40,10 @@ public class ControlRobotController implements IController {
     }
 
     public void init() {
-        Controller c = new Controller();
+        Controller c = GUIController.getInstance().getLeapMotion();
+        c.removeListener(GUIController.getInstance().getMouseListener());
         c.setPolicy(Controller.PolicyFlag.POLICY_BACKGROUND_FRAMES);
-        motionListener = new MotionListener(label);
+        motionListener = new MotionListener(label,this);
         c.addListener(motionListener);
     }
 
