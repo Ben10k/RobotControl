@@ -38,6 +38,17 @@ public class LanguageChoiceController implements IController {
                 a = new MainMenuController();
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
             }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                backPanel.setBackground(GUIController.getInstance().getOnColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                backPanel.setBackground(GUIController.getInstance().getOffColor());
+
+            }
         });
     }
 

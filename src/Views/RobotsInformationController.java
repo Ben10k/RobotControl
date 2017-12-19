@@ -44,6 +44,17 @@ public class RobotsInformationController implements IController {
                 a = new MainMenuController();
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
             }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                backPanel.setBackground(GUIController.getInstance().getOnColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                backPanel.setBackground(GUIController.getInstance().getOffColor());
+
+            }
         });
         goToRightPanel.addMouseListener(new MouseAdapter() {
             @Override
@@ -55,6 +66,17 @@ public class RobotsInformationController implements IController {
                 loadResources(id);
 
             }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                goToRightPanel.setBackground(GUIController.getInstance().getOnColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                goToRightPanel.setBackground(GUIController.getInstance().getOffColor());
+
+            }
         });
         goToLeftPanel.addMouseListener(new MouseAdapter() {
             @Override
@@ -64,6 +86,17 @@ public class RobotsInformationController implements IController {
                 if(id == 0) id = 3;
                 else id--;
                 loadResources(id);
+
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                goToLeftPanel.setBackground(GUIController.getInstance().getOnColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                goToLeftPanel.setBackground(GUIController.getInstance().getOffColor());
 
             }
         });

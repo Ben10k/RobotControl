@@ -1,6 +1,7 @@
 package Views;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -25,6 +26,17 @@ public class MainMenuController implements IController {
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
 
             }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                robotsTodayPanel.setBackground(GUIController.getInstance().getOnColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                robotsTodayPanel.setBackground(GUIController.getInstance().getOffColor());
+
+            }
         });
 
         historyOfRoboticsPanel.addMouseListener(new MouseAdapter() {
@@ -34,6 +46,17 @@ public class MainMenuController implements IController {
                 System.out.println("historyOfRoboticsPanel");
                 a = new RobotsInformationController("Resources/History-of-Robotics/");
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
+
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                historyOfRoboticsPanel.setBackground(GUIController.getInstance().getOnColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                historyOfRoboticsPanel.setBackground(GUIController.getInstance().getOffColor());
 
             }
         });
@@ -46,7 +69,16 @@ public class MainMenuController implements IController {
                 a = new ControlRobotController();
 
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
-
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                controlRobotPanel.setBackground(GUIController.getInstance().getOnColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                controlRobotPanel.setBackground(GUIController.getInstance().getOffColor());
 
             }
         });
@@ -60,21 +92,18 @@ public class MainMenuController implements IController {
                 GUIController.getInstance().setContent(a.getContentPanel(), a.getTitle());
 
             }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                languagePanel.setBackground(GUIController.getInstance().getOnColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                languagePanel.setBackground(GUIController.getInstance().getOffColor());
+
+            }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     public JPanel getContentPanel() {

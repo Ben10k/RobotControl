@@ -11,6 +11,8 @@ public class GUIController {
     private JFrame frame;
     private Controller leapMotion = new Controller();
     private MouseListener mouseListener;
+    private Color onColor = Color.CYAN;
+    private Color offColor = Color.white;
 
 
     private GUIController() {
@@ -59,5 +61,13 @@ public class GUIController {
 
     public MouseListener getMouseListener() {
         return mouseListener;
+    }
+
+    public Color getOnColor() {
+        return onColor;
+    }
+
+    public Color getOffColor() {
+        return offColor;
     }
 }

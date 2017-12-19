@@ -49,7 +49,8 @@
             </constraints>
             <properties>
               <font size="18"/>
-              <text value="Left"/>
+              <icon value="icons/left.png"/>
+              <text value=""/>
             </properties>
           </component>
         </children>
@@ -70,7 +71,8 @@
             </constraints>
             <properties>
               <font size="18"/>
-              <text value="Right"/>
+              <icon value="icons/right.png"/>
+              <text value=""/>
             </properties>
           </component>
         </children>
