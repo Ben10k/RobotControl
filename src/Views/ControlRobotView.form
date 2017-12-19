@@ -27,7 +27,7 @@
             </constraints>
             <properties>
               <font size="28"/>
-              <text value="The robot is at your command"/>
+              <text value=""/>
             </properties>
           </component>
         </children>

@@ -65,12 +65,15 @@ public class MotionListener extends Listener {
         if (insertHandCounter > 300) {
             if (sleep == 0)
             {
-                label.setText("This is where I should go to sleep");
+//                label.setText("This is where I should go to sleep");
+                label.setIcon(new ImageIcon("Resources/control/insert.png"));
+
                 control.goBack();
 
             }
             else {
-                label.setText("Entering sleep mode in " + sleep + " seconds");
+//                label.setText("Entering sleep mode in " + sleep + " seconds");
+                label.setIcon(new ImageIcon("Resources/control/insert.png"));
                 sleep--;
             }
 
@@ -81,7 +84,8 @@ public class MotionListener extends Listener {
             }
             if (!controller.frame().hands().isEmpty()) {
                 System.out.println("Hand Captured");
-                label.setText("Loading");
+//                label.setText("Loading");
+                label.setIcon(new ImageIcon("Resources/control/loading.png"));
                 insertHandCounter = 0;
                 sleep = 10;
                 calibration = 1;
@@ -92,7 +96,8 @@ public class MotionListener extends Listener {
 
             if (controller.frame().hands().isEmpty()) {
                 firstFrame = null;
-                label.setText("Insert hand");
+//                label.setText("Insert hand");
+                label.setIcon(new ImageIcon("Resources/control/insert.png"));
                 insertHandCounter++;
             }
 
@@ -101,7 +106,8 @@ public class MotionListener extends Listener {
                     || (!controller.frame().hands().isEmpty() && veryFirstFrame)) {
                 System.out.println("Hand Captured");
                 calibration = 1;
-                label.setText("Loading");
+//                label.setText("Loading");
+                label.setIcon(new ImageIcon("Resources/control/loading.png"));
                 insertHandCounter = 0;
             }
 
@@ -143,30 +149,48 @@ public class MotionListener extends Listener {
                     if (Math.abs(rotation) > 4) {
                         hexapod.actuate(3, rotation);
                         System.out.println("Rotate              " + rotation);
-                        if (rotation > 0)
-                            label.setText("rotating Right");
-                        if (rotation < 0)
-                            label.setText("rotating Left");
+                        if (rotation > 0){
+//                            label.setText("rotating Right");
+                            label.setIcon(new ImageIcon("Resources/control/rotateRight.png"));
+                        }
+                        if (rotation < 0) {
+//                            label.setText("rotating Left");
+                            label.setIcon(new ImageIcon("Resources/control/rotateLeft.png"));
+
+                        }
                     } else {
                         if (Math.abs(speed) > Math.abs(sideways)) {
                             hexapod.actuate(1, speed);
                             System.out.println("moveForwardBackward " + speed);
-                            if (speed > 0)
-                                label.setText("moving Forward");
-                            if (speed < 0)
-                                label.setText("moving Backward");
-                            if (speed == 0)
-                                label.setText("waiting for actions");
+                            if (speed > 0) {
+//                                label.setText("moving Forward");
+                                label.setIcon(new ImageIcon("Resources/control/moveUp.png"));
+                            }
+                            if (speed < 0) {
+//                                label.setText("moving Backward");
+                                label.setIcon(new ImageIcon("Resources/control/moveDown.png"));
+                            }
+                            if (speed == 0) {
+//                                label.setText("waiting for actions");
+                                label.setIcon(new ImageIcon("Resources/control/ready.png"));
+
+                            }
 
                         } else {
                             hexapod.actuate(2, sideways);
                             System.out.println("moveLeftRight       " + sideways);
-                            if (sideways > 0)
-                                label.setText("moving Right");
-                            if (sideways < 0)
-                                label.setText("moving Left");
-                            if (sideways == 0)
-                                label.setText("waiting for actions");
+                            if (sideways > 0) {
+//                                label.setText("moving Right");
+                                label.setIcon(new ImageIcon("Resources/control/moveRight.png"));
+                            }
+                            if (sideways < 0) {
+//                                label.setText("moving Left");
+                                label.setIcon(new ImageIcon("Resources/control/moveLeft.png"));
+                            }
+                            if (sideways == 0) {
+//                                label.setText("waiting for actions");
+                                label.setIcon(new ImageIcon("Resources/control/ready.png"));
+                            }
                         }
                     }
                 }
